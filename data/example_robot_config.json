@@ -1,0 +1,153 @@
+{
+    "bots":[
+        {
+            "name":"smoochbot",
+            "phrases":[
+                {
+                    "id":"greeting1",
+                    "parts":[
+                        "hello",
+                        "hello there",
+                        "hi",
+                        "hey",
+                        "how's it going?",
+                        "how are you doing?",
+                        "what's up?",
+                        "what's new?",
+                        "what's going on?",
+                        "how's everything?",
+                        "how are things?",
+                        "how's life?",
+                        "how's your day?"
+                    ],
+                    "type":"greeting",
+                    "intent":"greeting_response",
+                    "context":["greeting"]
+                },
+                {
+                    "id":"ask_company1",
+                    "parts":[
+                        "about your company",
+                        "what does your company do",
+                        "what do you do"
+                    ],
+                    "type":"query",
+                    "intent":"ask_company",
+                    "context":["asking"]
+                },
+                {
+                    "id":"ask_contact1",
+                    "parts":[
+                        "contact me",
+                        "please contact",
+                        "salesperson call me",
+                        "call me",
+                        "please call me",
+                        "get in touch"
+                    ],
+                    "type":"query",
+                    "intent":"ask_contact",
+                    "context":["asking"]
+                },
+                {
+                    "id":"ask_team1",
+                    "parts":[
+                        "about your team",
+                        "your team is",
+                        "who is on your team",
+                        "the team"
+                    ],
+                    "type":"query",
+                    "intent":"ask_team",
+                    "context":["asking"]
+                },
+                {
+                    "id":"ask_about_statements_2",
+                    "parts":[
+                        "about your product",
+                        "the product",
+                        "what do you make"
+                    ],
+                    "type":"query",
+                    "intent":"ask_product",
+                    "context":["asking"]
+                },
+                {
+                    "id":"ask_about_robot",
+                    "parts":[
+                        "what are you",
+                        "who are you",
+                        "who is you"
+                    ],
+                    "type":"question",
+                    "intent":"ask_about_robot",
+                    "context":["asking"]
+                },
+                {
+                    "id":"tell_about_statements_1",
+                    "parts":[
+                        "you are",
+                        "you are a",
+                        "you are an"
+                    ],
+                    "type":"statement",
+                    "intent":"tell_about_robot",
+                    "context":["telling"]
+                }
+            ],
+            "intents":[
+                {
+                    "id":"ask_about_robot",
+                    "scope":"any",
+                    "actions":[
+                        {"say":"I am a robot that was put here to help get you information and connect you with our team."},
+                        {"say":"I am a humanist. So I love all humans."},
+                        {"say":"I love most people. So I want to help you get connected with the info you want."}
+                    ]
+                },
+                {
+                    "id":"ask_team",
+                    "scope":"any",
+                    "actions":[
+                        {"say":"Our team is out of this world. John Yaya... John Small Berries... John O'Connor... John Parker... John Bigboote all are titans of the Propulsion industry. Feel free to connect with them at http://linkedin.com!"}
+                    ]
+                },
+                {
+                    "id":"ask_product",
+                    "scope":"any",
+                    "actions":[
+                        {"say":"Well we have a great product, we are innvating Propulsion and we would love to talk to you about it in person. Can I get your email address so somebody on our team can tell you more?"}
+                    ]
+                },
+                {
+                    "id":"ask_company",
+                    "scope":"any",
+                    "actions":[
+                        {"say":"Our company Yoyodyne Propulsion Systems builds awesome Propulsion products made for the future. Our team is incredible. If you would like to learn about them just ask away."}
+                    ]
+                },
+                {
+                    "id":"ask_contact",
+                    "scope":"any",
+                    "actions":[
+                        {"say":"We would love to talk with you. I am a poor replacement for a real person, but I try. So if you leave your email and phone number with me, I will send it to the team directly. Then somebody can get back to you right away."}
+                    ]
+                },
+                {
+                    "id":"greeting_response",
+                    "scope":"any",
+                    "actions":[
+                        {"say":"Hello, I am freindly. What is your name?"}
+                    ]
+                },
+                {
+                    "id":"tell_about_robot",
+                    "scope":"any",
+                    "actions":[
+                        {"say":"Well, thats very observant of you. I am freindly. So I only say nice things."}
+                    ]
+                }
+            ]
+        }
+    ]
+}

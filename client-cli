@@ -1,0 +1,46 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+import sys
+import json
+from apiai import AIRobotClient
+
+def load_config(config_file):
+    config = {}
+    with open(config_file, 'r') as f:
+        for line in f:
+            line = line.rstrip() #removes trailing whitespace and '\n' chars
+
+            if "=" not in line: continue #skips blanks and comments w/o =
+            if line.startswith("#"): continue #skips comments which contain =
+
+            k, v = line.split("=", 1)
+            config[k] = v.replace("\"","")
+    return config
+
+def main(argv):
+    print "starting."
+
+    config = load_config(argv[0])
+
+    bot = AIRobotClient(config=config, token=config['API_AI_TOKEN'])
+
+    listening = True
+    while listening:
+        line = sys.stdin.readline()
+
+        if not line:
+            break
+        else:
+            if(":q" in line):
+                print "goodbye."
+                break
+            sys.stdout.write("user: {0}".format(line))
+            response = bot.query(line)
+            # print "response: {0}".format(json.dumps(response, indent=4))
+            if 'status' in response and response['status']['errorType'] == 'success' and 'result' in response and 'fulfillment' in response['result'] and 'speech' in response['result']['fulfillment']:
+                print "robot: {0}".format(response['result']['fulfillment']['speech'])
+
+
+if __name__ == "__main__":
+    main(sys.argv[1:])
