@@ -1,8 +1,8 @@
 import smooch
-import robot
 import os
 import sys
 import json
+from apiai import AIRobotClient
 
 from flask import Flask, request, g, Response
 from werkzeug.local import LocalProxy
