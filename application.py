@@ -88,7 +88,7 @@ def smooch_events():
     robot = LocalProxy(get_robot)
 
     for message in request.json['messages']:
-        response = robot.query(line)
+        response = robot.query(message['text'])
         if 'status' in response and response['status']['errorType'] == 'success' and 'result' in response and 'fulfillment' in response['result'] and 'speech' in response['result']['fulfillment']:
             smooch_api.postback_message(response['result']['fulfillment']['speech'], message['authorId'])
 

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t claytantor/apiaismoochbot:latest .
+docker build -t claytantor/apiai-smooch-docker:latest .
